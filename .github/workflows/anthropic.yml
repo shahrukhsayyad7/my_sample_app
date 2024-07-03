@@ -16,3 +16,4 @@ jobs:
           pip3 install git+https://github.com/adbar/htmldate.git
           current_terms="$(htmldate -u "https://www.anthropic.com/legal/commercial-terms")"
           echo "$current_terms"
+          echo "$ANTHROPIC_CURRENT_DATE"

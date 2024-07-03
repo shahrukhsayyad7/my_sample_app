@@ -13,9 +13,15 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         env:
-          TOKEN: 2024-05-13
+          previous_terms: 2024-05-13
         run: |
           pip3 install git+https://github.com/adbar/htmldate.git
           current_terms="$(htmldate -u "https://www.anthropic.com/legal/commercial-terms")"
-          echo "$current_terms"
-          echo "$TOKEN"
+          echo "The current date of terms is $current_terms"
+          echo "The previous date of terms is $previous_terms"
+          if (( $cuurent_terms -ne $previous_terms ))
+          then
+                  echo "The terms at anthropic.com have been updated. Please check https://www.anthropic.com/legal/commercial-terms!" | mailx -s "Terms Updated at www.anthropic.com" shahrukh@skyword.com
+          else
+                  echo "No change in terms"
+          fi

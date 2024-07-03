@@ -19,9 +19,8 @@ jobs:
           current_terms="$(htmldate -u "https://www.anthropic.com/legal/commercial-terms")"
           echo "The current date of terms is $current_terms"
           echo "The previous date of terms is $previous_terms"
-          if [ "$current_terms" == "$previous_terms" ];
-          then
-                  echo "No change in terms"
-          elif
+          if [ "$current_terms" == "$previous_terms" ];then
+            echo "No change in terms"
+          else
                   echo "The terms at anthropic.com have been updated. Please check https://www.anthropic.com/legal/commercial-terms!" | mailx -s "Terms Updated at www.anthropic.com" shahrukh@skyword.com
           fi

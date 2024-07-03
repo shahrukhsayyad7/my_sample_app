@@ -12,8 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository to the runner
+        env:
+          TOKEN: ${{ secrets.ANTHROPIC_CURRENT_DATE }}
         run: |
           pip3 install git+https://github.com/adbar/htmldate.git
           current_terms="$(htmldate -u "https://www.anthropic.com/legal/commercial-terms")"
           echo "$current_terms"
-          echo "${{ secrets.ANTHROPIC_CURRENT_DATE }}"
+          anthropic_current_terms=$(curl -s $TOKEN)
+          echo "$anthropic_current_terms"

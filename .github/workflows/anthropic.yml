@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         env:
-          TOKEN: $2024-05-13
+          TOKEN: 2024-05-13
         run: |
           pip3 install git+https://github.com/adbar/htmldate.git
           current_terms="$(htmldate -u "https://www.anthropic.com/legal/commercial-terms")"

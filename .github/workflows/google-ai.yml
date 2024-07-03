@@ -1,0 +1,27 @@
+name: Google AI terms job
+
+on:
+  push:
+    branches: [ main ]
+
+  #schedule:
+    #- cron: '0 1 * * *' # every night at 1 am UTC
+
+jobs:
+  anthropic-terms:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the terms and notify if necessary
+        env:
+          previous_terms: 2024-05-13
+        run: |
+          sudo apt-get install mailutils
+          pip install trafilatura
+          current_terms="$(trafilatura -u "https://ai.google.dev/gemini-api/terms" grep Effective)"
+          echo "The current date of terms is $current_terms"
+          echo "The previous date of terms is $previous_terms"
+          if [ "$current_terms" == "$previous_terms" ];then
+            echo "No change in terms"
+          else
+            echo "The terms at ai.google.dev have been updated. Please check https://https://ai.google.dev/gemini-api/terms" | mail -s "Terms Updated at www.anthropic.com" shahrukh@skyword.com
+          fi

@@ -15,7 +15,7 @@ jobs:
         env:
           previous_terms: 2024-05-13
         run: |
-          apt-get install mailutils
+          sudo apt-get install mailutils
           pip3 install git+https://github.com/adbar/htmldate.git
           current_terms="$(htmldate -u "https://www.anthropic.com/legal/commercial-terms")"
           echo "The current date of terms is $current_terms"

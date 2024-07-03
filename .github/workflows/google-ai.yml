@@ -23,5 +23,5 @@ jobs:
           if [ "$current_terms" == "$previous_terms" ];then
             echo "No change in terms"
           else
-            echo "The terms at ai.google.dev have been updated. Please check https://https://ai.google.dev/gemini-api/terms" | mail -s "Terms Updated at www.anthropic.com" shahrukh@skyword.com
+            echo "The terms at ai.google.dev have been updated. Please check https://https://ai.google.dev/gemini-api/terms" | mail -s "Terms Updated at ai.google.dev" shahrukh@skyword.com
           fi

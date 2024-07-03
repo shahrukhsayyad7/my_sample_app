@@ -8,7 +8,7 @@ on:
     #- cron: '0 1 * * *' # every night at 1 am UTC
 
 jobs:
-  anthropic-terms:
+  google-ai:
     runs-on: ubuntu-latest
     steps:
       - name: Check the terms and notify if necessary
@@ -17,7 +17,7 @@ jobs:
         run: |
           sudo apt-get install mailutils
           pip install trafilatura
-          current_terms="$(trafilatura -u "https://ai.google.dev/gemini-api/terms" grep Effective)"
+          current_terms="$(trafilatura -u "https://ai.google.dev/gemini-api/terms" | grep Effective)"
           echo "The current date of terms is $current_terms"
           echo "The previous date of terms is $previous_terms"
           if [ "$current_terms" == "$previous_terms" ];then

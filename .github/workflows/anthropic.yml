@@ -1,8 +1,11 @@
 name: Anthropic terms job
 
 on:
-  schedule:
-    - cron: '0 1 * * *' # every night at 1 am UTC
+  push:
+    branches: [ main ]
+
+  #schedule:
+    #- cron: '0 1 * * *' # every night at 1 am UTC
 
 jobs:
   anthropic-terms:

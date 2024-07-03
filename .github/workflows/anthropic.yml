@@ -13,11 +13,9 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         env:
-          TOKEN: ${{ secrets.ANTHROPIC_CURRENT_DATE }}
+          TOKEN: $2024-05-13
         run: |
           pip3 install git+https://github.com/adbar/htmldate.git
           current_terms="$(htmldate -u "https://www.anthropic.com/legal/commercial-terms")"
           echo "$current_terms"
-          anthropic_current_terms="$(echo "$TOKEN")"
-          echo "$anthropic_current_terms"
-          echo "${{ secrets.ANTHROPIC_CURRENT_DATE }} | sed 's/./& /g'"
+          echo "$TOKEN"

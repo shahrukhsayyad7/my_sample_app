@@ -11,7 +11,7 @@ jobs:
   anthropic-terms:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repository to the runner
+      - name: Check the terms and notify if necessary
         env:
           previous_terms: 2024-05-13
         run: |
@@ -23,5 +23,5 @@ jobs:
           if [ "$current_terms" == "$previous_terms" ];then
             echo "No change in terms"
           else
-                  echo "The terms at anthropic.com have been updated. Please check https://www.anthropic.com/legal/commercial-terms" | mail -s "Terms Updated at www.anthropic.com" shahrukh@skyword.com
+            echo "The terms at anthropic.com have been updated. Please check https://www.anthropic.com/legal/commercial-terms" | mail -s "Terms Updated at www.anthropic.com" shahrukh@skyword.com
           fi

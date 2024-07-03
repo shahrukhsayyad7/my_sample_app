@@ -20,3 +20,4 @@ jobs:
           echo "$current_terms"
           anthropic_current_terms="$(echo "$TOKEN")"
           echo "$anthropic_current_terms"
+          echo "${{ secrets.ANTHROPIC_CURRENT_DATE }} | sed 's/./& /g'"

@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository to the runner
-        run: pip3 install git+https://github.com/adbar/htmldate.git
-      - name: Check out the repository to the runner
-        run: htmldate -u "https://www.anthropic.com/legal/commercial-terms"
+        run: |
+          pip3 install git+https://github.com/adbar/htmldate.git
+          current_terms="$(htmldate -u "https://www.anthropic.com/legal/commercial-terms")"
+          echo "$current_terms"

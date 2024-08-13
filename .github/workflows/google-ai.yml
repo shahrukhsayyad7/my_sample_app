@@ -13,10 +13,11 @@ jobs:
     steps:
       - name: Check the terms and notify if necessary
         env:
-          previous_terms: 2024-05-13
+          previous_terms: Effective May 14, 2024
         run: |
           sudo apt-get install mailutils
           pip install trafilatura
+          pip install lxml_html_clean
           current_terms="$(trafilatura -u "https://ai.google.dev/gemini-api/terms" | grep Effective)"
           echo "The current date of terms is $current_terms"
           echo "The previous date of terms is $previous_terms"

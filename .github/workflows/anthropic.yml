@@ -13,9 +13,10 @@ jobs:
     steps:
       - name: Check the terms and notify if necessary
         env:
-          previous_terms: 2024-05-13
+          previous_terms: 2024-05-14
         run: |
           sudo apt-get install mailutils
+          pip3 install setuptools --upgrade
           pip3 install git+https://github.com/adbar/htmldate.git
           current_terms="$(htmldate -u "https://www.anthropic.com/legal/commercial-terms")"
           echo "The current date of terms is $current_terms"
@@ -23,5 +24,5 @@ jobs:
           if [ "$current_terms" == "$previous_terms" ];then
             echo "No change in terms"
           else
-            echo "The terms at anthropic.com have been updated. Please check https://www.anthropic.com/legal/commercial-terms" | mail -s "Terms Updated at www.anthropic.com" shahrukh@skyword.com
+            echo "The terms at anthropic.com have been updated. Please check https://www.anthropic.com/legal/commercial-terms" | mail -s "Terms Updated at www.anthropic.com" ops@skyword.com
           fi

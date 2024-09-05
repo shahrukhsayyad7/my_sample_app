@@ -18,7 +18,7 @@ jobs:
           sudo apt-get install mailutils
           sudo apt-get install nikto -y
           nikto
-          nikto -h https://create.skyword.com
+          nikto -h https://create.skyword.com -ssl
           #-output create.out
           #scan_results="$(cat create.out)"
           #echo "$scan_results" | mail -s "Scan results of create.skyword.com" shahrukh@skyword.com

@@ -17,6 +17,7 @@ jobs:
         run: |
           sudo apt-get install mailutils
           #sudo apt-get install nikto -y
+          sudo apt-get install perl libnet-ssleay-perl openssl libauthen-pam-perl libio-pty-perl libmd5-perl
           git clone https://github.com/sullo/nikto
           cd nikto/program
           #nikto

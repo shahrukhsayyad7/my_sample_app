@@ -21,6 +21,6 @@ jobs:
           git clone https://github.com/sullo/nikto
           cd nikto/program
           #nikto
-          ./nikto.pl -h https://create.skyword.com -output create.out
+          ./nikto.pl -h https://create.skyword.com >> create.out
           scan_results="$(cat create.out)"
           echo "$scan_results" | mail -s "Scan results of create.skyword.com" shahrukh@skyword.com

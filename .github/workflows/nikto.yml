@@ -1,0 +1,23 @@
+name: Nikto job
+
+on:
+  push:
+    branches: [ main ]
+
+  #schedule:
+    #- cron: '0 1 * * *' # every night at 1 am UTC
+
+jobs:
+  nikto:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run the scans and notify
+        #env:
+          #previous_terms: 2024-05-14
+        run: |
+          sudo apt-get install mailutils
+          sudo apt-get install nikto -y
+          nikto
+          nikto -h https://create.skyword.com >> create.out
+          scan_results="$(cat create.out)"
+          echo "$scan_results" | mail -s "Scan results of create.skyword.com" shahrukh@skyword.com

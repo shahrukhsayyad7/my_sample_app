@@ -16,9 +16,11 @@ jobs:
           #previous_terms: 2024-05-14
         run: |
           sudo apt-get install mailutils
-          sudo apt-get install nikto -y
-          nikto
-          nikto -h https://create.skyword.com -ssl
+          #sudo apt-get install nikto -y
+          git clone https://github.com/sullo/nikto
+          cd nikto/program
+          #nikto
+          ./nikto.pl -h https://create.skyword.com
           #-output create.out
           #scan_results="$(cat create.out)"
           #echo "$scan_results" | mail -s "Scan results of create.skyword.com" shahrukh@skyword.com

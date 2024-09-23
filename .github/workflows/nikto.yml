@@ -23,6 +23,7 @@ jobs:
           #nikto
           ./nikto.pl --help
           #./nikto.pl -h https://create.skyword.com -output create.txt
-          ./nikto.pl -h https://image.skyword.com/fa752e87-722c-4c94-bbcb-1b4db70eaa5c_skyword-sandbox-logo.png -output create.txt
+          ./nikto.pl -h https://cargocdn.skyword.com -output create.txt
           scan_results="$(cat create.txt)"
-          echo "$scan_results" | mail -s "Scan results of create.skyword.com" shahrukh@skyword.com
+          #echo "$scan_results" | mail -s "Scan results of create.skyword.com" shahrukh@skyword.com
+          echo "$scan_results" | mail -s "Scan results of cargocdn.skyword.com" shahrukh@skyword.com

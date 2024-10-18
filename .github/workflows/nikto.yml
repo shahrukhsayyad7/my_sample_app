@@ -32,3 +32,5 @@ jobs:
           #echo "$scan_results" | mail -s "Scan results of create.skyword.com" shahrukh@skyword.com
           #echo "$scan_results" | mail -s "Scan results of cargocdn.skyword.com" -a 'Content-Type: text/html; charset="UTF-8"' shahrukh@skyword.com
           echo "$scan_results" | mail -s "Scan results of create.skyword.com" -a 'Content-Type: text/html; charset="UTF-8"' shahrukh@skyword.com
+          echo "$scan_results" | mail -s "Scan results of create.skyword.com" -a "create.csv" shahrukh@skyword.com
+

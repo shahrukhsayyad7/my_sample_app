@@ -24,13 +24,11 @@ jobs:
           #./nikto.pl --help
           #./nikto.pl -h https://create.skyword.com -output create.txt
           #./nikto.pl -h https://cargocdn.skyword.com -output create.txt
-          #./nikto.pl -h https://cargocdn.skyword.com -o create.html -Format htm
+          ./nikto.pl -h https://cargocdn.skyword.com -o create.html -Format htm
           #./nikto.pl -h https://create.skyword.com -o create.html -Format nbe
-          ./nikto.pl -h https://cargocdn.skyword.com -o create.nbe -Format nbe
-          ./nikto.pl -h https://cargocdn.skyword.com -o create.csv -Format csv
-          scan_results="$(cat create.csv)"
+          #./nikto.pl -h https://cargocdn.skyword.com -o create.nbe -Format nbe
+          #./nikto.pl -h https://cargocdn.skyword.com -o create.csv -Format csv
+          scan_results="$(cat create.html)"
           #echo "$scan_results" | mail -s "Scan results of create.skyword.com" shahrukh@skyword.com
           #echo "$scan_results" | mail -s "Scan results of cargocdn.skyword.com" -a 'Content-Type: text/html; charset="UTF-8"' shahrukh@skyword.com
-          echo "$scan_results" | mail -s "Scan results of create.skyword.com" -a 'Content-Type: text/html; charset="UTF-8"' shahrukh@skyword.com
-          echo "$scan_results" | mail -s "Scan results of create.skyword.com" -a "create.csv" shahrukh@skyword.com
-
+          #echo "$scan_results" | mail -s "Scan results of create.skyword.com" -a 'Content-Type: text/html; charset="UTF-8"' shahrukh@skyword.com

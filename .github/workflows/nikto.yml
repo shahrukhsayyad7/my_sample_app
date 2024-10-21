@@ -16,6 +16,7 @@ jobs:
           #previous_terms: 2024-05-14
         run: |
           sudo apt-get install mailutils
+          sudo apt-get install mutt
           #sudo apt-get install nikto -y
           sudo apt-get install perl libnet-ssleay-perl openssl libauthen-pam-perl libio-pty-perl
           git clone https://github.com/sullo/nikto
@@ -32,4 +33,4 @@ jobs:
           #echo "$scan_results" | mail -s "Scan results of create.skyword.com" shahrukh@skyword.com
           #echo "$scan_results" | mail -s "Scan results of cargocdn.skyword.com" -a 'Content-Type: text/html; charset="UTF-8"' shahrukh@skyword.com
           #echo "$scan_results" | mail -s "Scan results of create.skyword.com" -a 'Content-Type: text/html; charset="UTF-8"' shahrukh@skyword.com
-          echo "$scan_results" | mail -s "Scan results of cargocdn.skyword.com" -a create.csv shahrukh@skyword.com
+          echo "$scan_results" | mutt -s "Scan results of cargocdn.skyword.com" -a create.csv -- shahrukh@skyword.com
